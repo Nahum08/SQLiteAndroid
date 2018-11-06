@@ -16,8 +16,20 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Ingresa nombre"
+        android:hint="Ingresa el email"
         android:id="@+id/txtEmail"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa el telefono"
+        android:id="@+id/txtTel"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa red social"
+        android:id="@+id/txtRedSocial"/>
 
 
     <Button
@@ -25,11 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:onClick="btnI_click"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="4dp"
-        android:text="Insertar"
-        />
+        android:onClick="btnI_click"
+        android:text="Insertar" />
 
     <Button
         android:id="@+id/btnCargar"
@@ -39,12 +50,20 @@
         android:text="Cargar datos"
          />
 
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:onClick="btnNext_click"
+        android:text="Eliminat y buscar" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lsv"
         >
-
     </ListView>
 
 </LinearLayout>

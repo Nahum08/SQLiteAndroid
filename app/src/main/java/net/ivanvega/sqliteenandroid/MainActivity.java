@@ -1,6 +1,8 @@
 package net.ivanvega.sqliteenandroid;
 
+import android.content.Intent;
 import android.database.Cursor;
+import android.os.DropBoxManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +19,7 @@ import net.ivanvega.sqliteenandroid.db.Usuario;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    EditText txtN,txtE;
+    EditText txtN,txtE,txtElim,txtTel,txtRedS;
     ListView lsv ;
 
     @Override
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         txtN = findViewById(R.id.txtNombre);
         txtE = findViewById(R.id.txtEmail);
+        txtTel = findViewById(R.id.txtTel);
+        txtRedS = findViewById(R.id.txtRedSocial);
 
          lsv = findViewById(R.id.lsv);
 
@@ -38,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         long result = ado.add(
                 new Usuario(
-                    0, txtN.getText().toString(), "4451022214",
-                        txtE.getText().toString(), "@"+txtN.getText().toString()
+                    0, txtN.getText().toString(),txtTel.getText().toString(),
+                        txtE.getText().toString(), "@"+txtRedS.getText().toString()
                 )
         );
 
@@ -59,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d("USUARIO: " , item.getNombre());
         }
         Cursor c =  dao.getAllC();
-
-
-
         SimpleCursorAdapter adp = new SimpleCursorAdapter(
           this, android.R.layout.simple_list_item_2 ,
           c , MiAdaptadorUsuariosConexion.COLUMNS_USUARIOS,
@@ -71,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         );
 
         lsv.setAdapter(adp);
+    }
+    public void btnNext_click(View view){
+        Intent intent = new Intent(getApplicationContext(),Main2Activity.class);
+        startActivity(intent);
     }
 
 }

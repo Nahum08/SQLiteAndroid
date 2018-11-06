@@ -50,6 +50,34 @@ public class DAOUsuarios {
         return 0;
     }
 
+    public String[] buscar (String nombre) {
+        String[] datos = new String[3];
+        String q = "select * from usuarios where nombre = '" + nombre + "'";
+        Cursor registros = _ad.rawQuery(q,null);
+        if (registros.moveToFirst()){
+            for (int i = 0;i<2;i++){
+                datos[i]= registros.getString(i);
+            }
+            datos[2] = "encontrado";
+        }else {
+            datos[2] = "no se encontro"+nombre;
+        }
+        return datos;
+    }
+
+    public String delete(String nombre){
+        String mensaje;
+        int cantidad = _ad.delete("usuarios","nombre = '"+nombre+"'",null);
+        if (cantidad != 0){
+            mensaje = "eliminado";
+        }else {
+            mensaje = "No existe";
+        }
+        return mensaje;
+    }
+
+
+
     public List<Usuario > getAll(){
         List <Usuario> lst = new ArrayList<Usuario>();
 

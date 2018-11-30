@@ -58,12 +58,13 @@ public class DAOUsuarios {
             for (int i = 0;i<2;i++){
                 datos[i]= registros.getString(i);
             }
-            datos[2] = "encontrado";
-        }else {
             datos[2] = "no se encontro"+nombre;
+        }else {
+            datos[2] = "encontrado";
         }
         return datos;
     }
+
 
     public String delete(String nombre){
         String mensaje;
@@ -75,7 +76,6 @@ public class DAOUsuarios {
         }
         return mensaje;
     }
-
 
 
     public List<Usuario > getAll(){
@@ -104,9 +104,6 @@ public class DAOUsuarios {
     }
 
     public Cursor getAllC(){
-
-
-
 
         Cursor c = _ad.query(
                 MiAdaptadorUsuariosConexion.TABLES_DB[0],
